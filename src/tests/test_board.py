@@ -4,6 +4,7 @@ from src.Board import Board
 from src.Dice import RegularDice
 from src.GameException import GameException
 from src.Player import Player
+from src.utilities import disable_print_statements_on_console
 
 
 class TestBoard(unittest.TestCase):
@@ -14,18 +15,21 @@ class TestBoard(unittest.TestCase):
         self.snakes = {14: 7}
         self.board = Board(self.snakes)
 
+    @disable_print_statements_on_console
     def test__move__check_player_position(self):
         starting_position = self.player.position
         dice_value = self.player.chance_to_roll_dice()
         self.board.move(self.player, dice_value)
         self.assertNotEqual(self.player.position, starting_position)
 
+    @disable_print_statements_on_console
     def test__move__check_for_snake_bite(self):
         self.player.position = 10
         dice_value = 4
         self.board.move(self.player, dice_value)
         self.assertEqual(self.player.position, 7)
 
+    @disable_print_statements_on_console
     def test__move__check_winning_condition(self):
         self.player.position = 99
         dice_value = 1
