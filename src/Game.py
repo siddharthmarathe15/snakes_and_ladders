@@ -11,6 +11,10 @@ class SnakesAndLadders:
         self.turns = turns
 
     def play(self):
+        """
+        The method describes the flow of the game. The game will be terminated either
+        when the player reached maximum number of chances or the player has won the game
+        """
         for _ in range(self.turns):
             try:
                 initial_position = self.player.position

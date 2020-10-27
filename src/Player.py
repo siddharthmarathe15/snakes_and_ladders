@@ -8,6 +8,10 @@ class Player:
         self.dice = dice
 
     def chance_to_roll_dice(self):
+        """
+        The method used to roll the dice for the respective player
+        :return: the dice value
+        """
         print(f"\nRolling dice for player: {self.name}")
         time.sleep(2)
         dice_value = self.dice.roll()

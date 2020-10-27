@@ -10,6 +10,9 @@ class Board:
         self.snakes = snakes
 
     def move(self, player, dice_value):
+        """
+        The method updates the position of the player according to the dice value and also checks for the winning case.
+        """
         updated_position = player.position + dice_value
 
         if updated_position > self.end_position:
@@ -26,5 +29,8 @@ class Board:
         self.check_for_winner(player)
 
     def check_for_winner(self, player):
+        """
+        The method checks for the winning case. If the player reaches the end point then the game is over.
+        """
         if player.position == self.end_position:
             raise GameException(f"\n\nCongratulations! {player.name} won the game")
